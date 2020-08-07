@@ -1,0 +1,25 @@
+[{
+  "file": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/main.cpp",
+  "directory": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge",
+  "command": "clang  -c /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/main.cpp -o /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/main.cpp.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }, {
+  "file": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movie.cpp",
+  "directory": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge",
+  "command": "clang  -c /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movie.cpp -o /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movie.cpp.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }, {
+  "file": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movie.h",
+  "directory": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge",
+  "command": "clang  -c /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movie.h -o /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movie.h.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }, {
+  "file": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movies.cpp",
+  "directory": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge",
+  "command": "clang  -c /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movies.cpp -o /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movies.cpp.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }, {
+  "file": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movies.h",
+  "directory": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge",
+  "command": "clang  -c /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movies.h -o /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Class_Challenge/Movies.h.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }, {
+  "file": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Account/main.cpp",
+  "directory": "/home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Account",
+  "command": "clang  -c /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Account/main.cpp -o /home/prajwal/Desktop/Online_courses/Udemy/Programming/classes/Account/main.cpp.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }]

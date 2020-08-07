@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="classes" Database="" Version="10.0.0">
+  <Project Name="Account" Path="Account/Account.project" Active="No"/>
+  <Project Name="Class_Challenge" Path="Class_Challenge/Class_Challenge.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Environment/>
+      <Project Name="Account" ConfigName="Debug"/>
+      <Project Name="Class_Challenge" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
+      <Project Name="Account" ConfigName="Release"/>
+      <Project Name="Class_Challenge" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

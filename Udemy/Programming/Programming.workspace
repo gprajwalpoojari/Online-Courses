@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="Programming" Database="" Version="10.0.0">
+  <Project Name="FirstProject" Path="FirstProject/FirstProject.project" Active="No"/>
+  <Project Name="VectorProject" Path="VectorProject/VectorProject.project" Active="No"/>
+  <Project Name="dollarConversion" Path="dollarConversion/dollarConversion.project" Active="No"/>
+  <Project Name="LoopTest" Path="LoopTest/LoopTest.project" Active="No"/>
+  <Project Name="EncryptDecrypt" Path="EncryptDecrypt/EncryptDecrypt.project" Active="No"/>
+  <Project Name="Pyramid" Path="Pyramid/Pyramid.project" Active="No"/>
+  <Project Name="UnderstandingPointers" Path="UnderstandingPointers/UnderstandingPointers.project" Active="Yes"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Environment/>
+      <Project Name="FirstProject" ConfigName="Debug"/>
+      <Project Name="VectorProject" ConfigName="Debug"/>
+      <Project Name="dollarConversion" ConfigName="Debug"/>
+      <Project Name="LoopTest" ConfigName="Debug"/>
+      <Project Name="EncryptDecrypt" ConfigName="Debug"/>
+      <Project Name="Pyramid" ConfigName="Debug"/>
+      <Project Name="UnderstandingPointers" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
+      <Project Name="FirstProject" ConfigName="Release"/>
+      <Project Name="VectorProject" ConfigName="Release"/>
+      <Project Name="dollarConversion" ConfigName="Release"/>
+      <Project Name="LoopTest" ConfigName="Release"/>
+      <Project Name="EncryptDecrypt" ConfigName="Release"/>
+      <Project Name="Pyramid" ConfigName="Release"/>
+      <Project Name="UnderstandingPointers" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>

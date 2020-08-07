@@ -1,0 +1,29 @@
+[{
+  "file": "/home/prajwal/Desktop/Programming/Pyramid/main.cpp",
+  "directory": "/home/prajwal/Desktop/Programming/Pyramid",
+  "command": "clang  -c /home/prajwal/Desktop/Programming/Pyramid/main.cpp -o /home/prajwal/Desktop/Programming/Pyramid/main.cpp.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }, {
+  "file": "/home/prajwal/Desktop/Programming/FirstProject/main.cpp",
+  "directory": "/home/prajwal/Desktop/Programming/FirstProject",
+  "command": "clang  -c /home/prajwal/Desktop/Programming/FirstProject/main.cpp -o /home/prajwal/Desktop/Programming/FirstProject/main.cpp.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }, {
+  "file": "/home/prajwal/Desktop/Programming/VectorProject/main.cpp",
+  "directory": "/home/prajwal/Desktop/Programming/VectorProject",
+  "command": "clang  -c /home/prajwal/Desktop/Programming/VectorProject/main.cpp -o /home/prajwal/Desktop/Programming/VectorProject/main.cpp.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }, {
+  "file": "/home/prajwal/Desktop/Programming/UnderstandingPointers/main.cpp",
+  "directory": "/home/prajwal/Desktop/Programming/UnderstandingPointers",
+  "command": "clang  -c /home/prajwal/Desktop/Programming/UnderstandingPointers/main.cpp -o /home/prajwal/Desktop/Programming/UnderstandingPointers/main.cpp.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }, {
+  "file": "/home/prajwal/Desktop/Programming/dollarConversion/main.cpp",
+  "directory": "/home/prajwal/Desktop/Programming/dollarConversion",
+  "command": "clang  -c /home/prajwal/Desktop/Programming/dollarConversion/main.cpp -o /home/prajwal/Desktop/Programming/dollarConversion/main.cpp.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }, {
+  "file": "/home/prajwal/Desktop/Programming/EncryptDecrypt/main.cpp",
+  "directory": "/home/prajwal/Desktop/Programming/EncryptDecrypt",
+  "command": "clang  -c /home/prajwal/Desktop/Programming/EncryptDecrypt/main.cpp -o /home/prajwal/Desktop/Programming/EncryptDecrypt/main.cpp.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }, {
+  "file": "/home/prajwal/Desktop/Programming/LoopTest/main.cpp",
+  "directory": "/home/prajwal/Desktop/Programming/LoopTest",
+  "command": "clang  -c /home/prajwal/Desktop/Programming/LoopTest/main.cpp -o /home/prajwal/Desktop/Programming/LoopTest/main.cpp.o  -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include -I. -I.  -g  -O0  -std=c++17  -Wall"
+ }]
