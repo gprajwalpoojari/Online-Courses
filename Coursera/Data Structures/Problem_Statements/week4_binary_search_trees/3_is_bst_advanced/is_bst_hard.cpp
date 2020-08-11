@@ -22,27 +22,27 @@ struct Node {
   Node(int key_, int left_, int right_) : key(key_), left(left_), right(right_) {}
 };
 
-struct Super_Node {
-  Node node;
-  int index;
-};
+Node previous;
 
-Super_Node previous;
-
+int left_most (int index,const vector <Node>& tree) {
+  if (index == -1 || tree[index].left == -1)
+    return index;
+  else return left_most(tree[index].left, tree);
+}
 void inorder_traversal(int index, const vector<Node> &tree) {
   if (tree.size() == 0 || index == -1)
     return;
   inorder_traversal(tree[index].left, tree);
-  if (count == 0) {
-    previous.node = tree[index];
-    previous.index = index;
-    count++;
-  }
-  else if (tree[index].key < previous.node.key)
-    is_bst = false;
-  else if (tree[index].key == previous.node.key)
-    if (index > previous.index)
+  if (count > 0) {
+    if (tree[index].key < previous.key)
       is_bst = false;
+    else if (tree[index].key == previous.key) {
+      if (index != left_most(previous.right, tree))
+        is_bst = false;
+    }
+  }
+  previous = tree[index];
+  count++;
   inorder_traversal(tree[index].right, tree);
 }
 
