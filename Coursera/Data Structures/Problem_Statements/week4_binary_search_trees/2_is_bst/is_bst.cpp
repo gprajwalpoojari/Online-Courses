@@ -1,12 +1,18 @@
 #include <algorithm>
 #include <iostream>
 #include <vector>
+#if defined(__unix__) || defined(__APPLE__)
+#include <sys/resource.h>
+#endif
+
 
 using std::cin;
 using std::cout;
 using std::endl;
 using std::vector;
 
+bool is_bst {true};
+int count {0};
 struct Node {
   int key;
   int left;
@@ -16,42 +22,46 @@ struct Node {
   Node(int key_, int left_, int right_) : key(key_), left(left_), right(right_) {}
 };
 
-int LeftDescendent(int index, vector<Node>& tree) {
-  Node node = tree[index];
-  if (node.left != -1) {
-    while (tree[node.left].left != -1) {
-      node = tree[node.left];
-    }
-  return node.left;
-  }
-  return index;
+vector <Node> order;
+void inorder_traversal(int index, const vector<Node> &tree) {
+  if (tree.size() == 0 || index == -1)
+    return;
+  inorder_traversal(tree[index].left, tree);
+  order.push_back(tree[index]);
+  count++;
+  if (count >= 2 && order[count - 1].key <  order[count - 2].key)
+    is_bst = false;
+  inorder_traversal(tree[index].right, tree);
 }
-
-int Next(int index, vecctor<Node> &tree) {
-  if (tree[index].right != -1) {
-    LeftDescendent(tree[index].right, &tree)
-  }
-  else {
-    RightAncestor(index, &tree);
-  }
-}
-
 
 bool IsBinarySearchTree(const vector<Node>& tree) {
   // Implement correct algorithm here
-  int smallest = LeftDescendent(0, tree);
-  Node next = Next(smallest);
-  while (next.key != -1) {
-    if (next.key < smallest.key) {
-      return false;
-    }
-    smallest = Next(smallest);
-    next = Next(smallest);
-  }
-  return true;
+  inorder_traversal(0, tree);
+  return is_bst;
 }
 
 int main() {
+#if defined(__unix__) || defined(__APPLE__)
+  // Allow larger stack space
+  const rlim_t kStackSize = 16 * 1024 * 1024;   // min stack size = 16 MB
+  struct rlimit rl;
+  int result;
+
+  result = getrlimit(RLIMIT_STACK, &rl);
+  if (result == 0)
+  {
+      if (rl.rlim_cur < kStackSize)
+      {
+          rl.rlim_cur = kStackSize;
+          result = setrlimit(RLIMIT_STACK, &rl);
+          if (result != 0)
+          {
+              std::cerr << "setrlimit returned result = " << result << std::endl;
+          }
+      }
+  }
+#endif
+
   int nodes;
   cin >> nodes;
   vector<Node> tree;
@@ -60,7 +70,7 @@ int main() {
     cin >> key >> left >> right;
     tree.push_back(Node(key, left, right));
   }
-  if (IsBinarySearchTree(tree) {
+  if (IsBinarySearchTree(tree)) {
     cout << "CORRECT" << endl;
   } else {
     cout << "INCORRECT" << endl;

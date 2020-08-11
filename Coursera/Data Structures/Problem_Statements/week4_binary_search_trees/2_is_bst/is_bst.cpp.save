@@ -1,0 +1,62 @@
+#include <algorithm>
+#include <iostream>
+#include <vector>
+
+using std::cin;
+using std::cout;
+using std::endl;
+using std::vector;
+
+bool is_bst {true};
+struct Node {
+  int key;
+  int left;
+  int right;
+
+  Node() : key(0), left(-1), right(-1) {}
+  Node(int key_, int left_, int right_) : key(key_), left(left_), right(right_) {}
+};
+Node inorder_traversal(int index, const vector<Node> &tree) {
+  if (tree.size() == 0) {
+    Node temp;
+    return temp;
+  }
+  if (tree[index].left != -1) {
+    Node previous = inorder_traversal(tree[index].left, tree);
+    if (previous.key > tree[index].key) {
+      is_bst = false;
+    }
+  }
+  Node current = tree[index];
+  if (tree[index].right != -1) {
+    Node next = inorder_traversal(tree[index].right, tree);
+    if (next.key < current.key) {
+      is_bst = false;
+    }
+    return next;
+  }
+  return current;
+}
+
+bool IsBinarySearchTree(const vector<Node>& tree) {
+  // Implement correct algorithm here
+  Node temp = inorder_traversal(0, tree);
+  return is_bst;
+}
+
+int main() {
+  int nodes;
+  cin >> nodes;
+  vector<Node> tree;
+  for (int i = 0; i < nodes; ++i) {
+    int key, left, right;
+    cin >> key >> left >> right;
+    tree.push_back(Node(key, left, right));
+  }
+  if (IsBinarySearchTree(tree)) {
+    cout << "CORRECT" << endl;
+  } else {
+    cout << "INCORRECT" << endl;
+  }
+  return 0;
+}
