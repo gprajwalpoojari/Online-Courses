@@ -7,6 +7,23 @@ using std::queue;
 
 int distance(vector<vector<int> > &adj, int s, int t) {
   //write your code here
+  vector<int> layer(adj.size(), -1);
+  vector<int> parent(adj.size(), -1);
+  queue<int> q;
+  q.push(s);
+  layer[s] = 0;
+  while (!q.empty()) {
+    int front = q.front();
+    q.pop();
+    for (auto vertex : adj[front]) {
+      if (layer[vertex] == -1) {
+        q.push(vertex);
+	layer[vertex] = layer[front] + 1;
+	parent[vertex] = front;
+	if (vertex == t) return layer[vertex];
+      }
+    }
+  }
   return -1;
 }
 
