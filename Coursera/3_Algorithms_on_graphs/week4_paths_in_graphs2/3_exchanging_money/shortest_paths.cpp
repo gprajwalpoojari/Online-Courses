@@ -10,8 +10,49 @@ using std::priority_queue;
 
 void shortest_paths(vector<vector<int> > &adj, vector<vector<int> > &cost, int s, vector<long long> &distance, vector<int> &reachable, vector<int> &shortest) {
   //write your code here
+  vector<int> prev(adj.size());
+  distance[s] = 0;
+  queue<int> q;
+  q.push(s);
+  reachable[s] = 1;
+  while (!q.empty()) {
+    int v = q.front();
+    q.pop();
+    for (int vertex : adj[v]) {
+      if(!reachable[vertex])
+        q.push(vertex);
+        reachable[vertex] = 1;
+    }
+  }
+  int tmp = 1;
+  queue<int> no_shortest_path;
+  for (int count = 0; count < adj.size(); count++) {
+    for (int i = 0; i < adj.size(); i++) {
+      for (int j = 0; j < adj[i].size(); j++) {
+        if (reachable[adj[i][j]] && distance[i] != std::numeric_limits<long long>::max() && distance[adj[i][j]] > distance[i] + cost[i][j]) {
+          if (count == adj.size() - 1) {
+            no_shortest_path.push(adj[i][j]);
+	    shortest[adj[i][j]] = 0;
+            while (!no_shortest_path.empty()) {
+	      int top = no_shortest_path.front();
+	      no_shortest_path.pop();
+	      for (int vertex : adj[top]) {
+                if (shortest[vertex]) {
+                  no_shortest_path.push(vertex);
+                  shortest[vertex] = 0;
+	        }
+              }
+            }
+          }
+          else {
+            distance[adj[i][j]] = distance[i] + cost[i][j];
+            prev[adj[i][j]] = i;
+          }
+        }
+      }
+    }
+  }
 }
-
 int main() {
   int n, m, s;
   std::cin >> n >> m;
