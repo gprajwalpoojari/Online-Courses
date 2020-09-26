@@ -78,6 +78,9 @@ public:
     // Returns the distance from s to t in the graph.
     Len query(int s, int t) {
         clear();
+	if (s == t) {
+	    return 0;
+	}
         Queue q(2);
         visit(q, 0, s, 0);
         visit(q, 1, t, 0);
@@ -86,9 +89,10 @@ public:
             if (!q[0].empty()) {
 		int u = q[0].top().second;
 		if (!visited_[u]) {
-		    for (int vert = 0; vert < adj_[u].size(); vert++) {
-	                if (!visited_[adj_[u][vert]]) {
-                            visit(q, 0, adj_[u][vert], cost_[u][vert]);
+		    for (int vert = 0; vert < adj_[0][u].size(); vert++) {
+			int vertex = adj_[0][u][vert];
+	                if (!visited_[vertex]) {
+                            visit(q, 0, adj_[0][u][vert], cost_[0][u][vert]);
 		        }
 		     }
 		    visited_[u] = 1;
@@ -110,9 +114,9 @@ public:
 	    if (!q[1].empty()) {
 	        int u = q[1].top().second;
 		if (!visited_[u]) {
-		    for (int vert = 0; vert < adj_[u].size(); vert++) {
-	                if (!visited_[adj_[u][vert]]) {
-                            visit(q, 1, adj_[u][vert], cost_[u][vert]);
+		    for (int vert = 0; vert < adj_[1][u].size(); vert++) {
+	                if (!visited_[adj_[1][u][vert]]) {
+                            visit(q, 1, adj_[1][u][vert], cost_[1][u][vert]);
 		        }
 		    }
 		    visited_[u] = 1;
