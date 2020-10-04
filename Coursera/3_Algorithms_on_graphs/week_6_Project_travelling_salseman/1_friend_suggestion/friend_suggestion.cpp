@@ -21,6 +21,8 @@ typedef vector<priority_queue<pair<Len, int>,vector<pair<Len,int>>,greater<pair<
 
 const Len INFINITY = numeric_limits<Len>::max() / 4;
 
+//Queue q(2);
+
 class Bidijkstra {
     // Number of nodes
     int n_;
@@ -43,8 +45,8 @@ class Bidijkstra {
 
 public:
     Bidijkstra(int n, Adj adj, Adj cost)
-        : n_(n), adj_(adj), cost_(cost), distance_(2, vector<Len>(n, INFINITY)), visited_(n)
-    { workset_.reserve(n); }
+        : n_(n), adj_(adj), cost_(cost), distance_(2, vector<Len>(n, INFINITY)), visited_(n, false)
+    { workset_.reserve(n);}
 
     // Initialize the data structures before new query,
     // clear the changes made by the previous query.
@@ -62,79 +64,54 @@ public:
     // relax the current distance by dist.
     void visit(Queue& q, int side, int v, Len dist) {
         // Implement this method yourself
-	if (dist == 0) {
-	    distance_[side][v] = 0;
+	if (q[side].empty()) {
+	    distance_[side][v] = dist;
 	    q[side].push(std::make_pair(distance_[side][v], v));
 	}
 	else {
 	    int u = q[side].top().second;
 	    if (distance_[side][v] > distance_[side][u] + dist) {
 		distance_[side][v] = distance_[side][u] + dist;
-         	q[side].push(std::make_pair(distance_[side][v], v));
+	       	q[side].push(std::make_pair(distance_[side][v], v));
 	    }
+	}
+	if (!visited_[v]) {
+            visited_[v] = true;
+	    workset_.push_back(v);
 	}
     }
 
     // Returns the distance from s to t in the graph.
     Len query(int s, int t) {
         clear();
-	if (s == t) {
-	    return 0;
-	}
-        Queue q(2);
+	Queue q(2);
+	vector<vector<bool>> processed(2,vector<bool>(n_, false));
         visit(q, 0, s, 0);
         visit(q, 1, t, 0);
         // Implement the rest of the algorithm yourself
+	int side = 0;
 	while (!q[0].empty() || !q[1].empty()) {
-            if (!q[0].empty()) {
-		int u = q[0].top().second;
-		if (!visited_[u]) {
-		    for (int vert = 0; vert < adj_[0][u].size(); vert++) {
-			int vertex = adj_[0][u][vert];
-	                if (!visited_[vertex]) {
-                            visit(q, 0, adj_[0][u][vert], cost_[0][u][vert]);
+            if (!q[side].empty()) {
+		int u = q[side].top().second;
+		if (!processed[side][u]) {
+		    for (int vert = 0; vert < adj_[side][u].size(); vert++) {
+			int vertex = adj_[side][u][vert];
+	                if (!processed[side][vertex]) {
+                            visit(q, side, vertex, cost_[side][u][vert]);
 		        }
 		     }
-		    visited_[u] = 1;
-		    workset_.push_back(u);
+		    processed[side][u] = true;
 		}
-		else {
-		    if (distance_[1][u] != INFINITY) {
-			Len length_ = INFINITY;
-		        for (int i = 0; i < workset_.size(); i++) {
-			    if (distance_[0][i] + distance_[1][i] < length_) {
-			        length_ = distance_[0][i] + distance_[1][i];
-			    }
-			}
-			return length_;
+		q[side].pop();
+	        if (processed[side][u] && processed[(side + 1) % 2][u]) {
+	            Len length_ = INFINITY;
+		    for (int i = 0; i < workset_.size(); i++) {
+			length_ = std::min(distance_[side][workset_[i]] + distance_[(side + 1) % 2][workset_[i]], length_);
 		    }
-		}
-		q[0].pop();
+		    return length_;
+	        }
 	    }
-	    if (!q[1].empty()) {
-	        int u = q[1].top().second;
-		if (!visited_[u]) {
-		    for (int vert = 0; vert < adj_[1][u].size(); vert++) {
-	                if (!visited_[adj_[1][u][vert]]) {
-                            visit(q, 1, adj_[1][u][vert], cost_[1][u][vert]);
-		        }
-		    }
-		    visited_[u] = 1;
-		    workset_.push_back(u);
-		}
-		else {
-		    if (distance_[0][u] != INFINITY) {
-		        Len length_ = INFINITY;
-			for (int i = 0; i < workset_.size(); i++) {
-			    if (distance_[0][i] + distance_[1][i] < length_) {
-			        length_ = distance_[0][i] + distance_[1][i];
-			    }
-			}
-			return length_;
-		    }
-		}
-		q[1].pop();
-	    }
+            side = (side + 1) % 2;
         }
         return -1;
     }
@@ -143,13 +120,11 @@ public:
 int main() {
     int n, m;
     std::cin >> n >> m;
-//    scanf("%d%d", &n, &m);
     Adj adj(2, vector<vector<int>>(n));
     Adj cost(2, vector<vector<int>>(n));
     for (int i=0; i<m; ++i) {
         int u, v, c;
         std::cin >> u >> v >> c;
-//        scanf("%d%d%d", &u, &v, &c);
         adj[0][u-1].push_back(v-1);
         cost[0][u-1].push_back(c);
         adj[1][v-1].push_back(u-1);
@@ -160,12 +135,11 @@ int main() {
 
     int t;
     std::cin >> t;
-//    scanf("%d", &t);
     for (int i=0; i<t; ++i) {
         int u, v;
         std::cin >> u >> v;
-//        scanf("%d%d", &u, &v);
-        std::cout << bidij.query(u - 1, v - 1) << std::endl;
-//        printf("%ld\n", bidij.query(u-1, v-1));
+        u--;
+	v--;
+        std::cout << bidij.query(u, v) << std::endl;
     }
 }

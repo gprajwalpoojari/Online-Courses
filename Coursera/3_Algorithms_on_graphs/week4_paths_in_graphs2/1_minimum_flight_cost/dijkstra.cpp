@@ -15,9 +15,10 @@ long long distance(vector<vector<int> > &adj, vector<vector<int> > &cost, int s,
   vector <bool> min_visited(adj.size(), false);
   cost_min[s] = 0;
   priority_queue<type, vector<type>, std::greater<type>> pq;
-  for (int i = 0; i < adj.size(); i++) {
+  pq.push(std::make_pair(cost_min[s], s));
+/*  for (int i = 0; i < adj.size(); i++) {
     pq.push(std::make_pair(cost_min[i], i));
-  }
+  }*/
   while (!pq.empty()) {
     pair <int, int> cp = pq.top();
     pq.pop();
@@ -46,8 +47,16 @@ int main() {
     adj[x - 1].push_back(y - 1);
     cost[x - 1].push_back(w);
   }
+/*  int times;
+  int s, t;
+  std::cin >> times;
+  for (int i = 0; i < times; i++) {
+    std::cin >> s >> t;
+    std::cout << distance(adj, cost, s - 1, t - 1) << std::endl;
+  }*/
   int s, t;
   std::cin >> s >> t;
   s--, t--;
   std::cout << distance(adj, cost, s, t);
+
 }
