@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 #include <cstdio>
 #include <cassert>
@@ -10,7 +11,7 @@
 using namespace std;
 
 // See the explanations of these typedefs and constants in the starter for friend_suggestion
-typedef vector<vector<vector<int>>> Adj;
+typedef vector<vector<vector<long long>>> Adj;
 typedef long long Len;
 typedef vector<priority_queue<pair<Len, int>, vector<pair<Len,int>>, greater<pair<Len,int>>>> Queue;
 
@@ -55,14 +56,13 @@ public:
     }
 
     // See the description of this method in the starter for friend_suggestion
-    void visit(Queue& q, int side, int v, Len dist, int s, int t) {
+    void visit(Queue& q, int side, int u, int v, Len dist, int s, int t) {
         // Implement this method yourself
 	if (q[side].empty()) {
 	    distance_[side][v] = dist;
 	    q[side].push(std::make_pair(distance_[side][v], v));
 	}
 	else {
-	    int u = q[side].top().second;
 	    if (distance_[side][v] > distance_[side][u] + dist) {
 	        distance_[side][v] = distance_[side][u] + dist;
 		q[side].push(std::make_pair(distance_[side][v] - norm_distance(v, s, t, side), v));
@@ -78,8 +78,8 @@ public:
     Len query(int s, int t) {
         clear();
         Queue q(2);
-        visit(q, 0, s, 0, s, t);
-        visit(q, 1, t, 0, s, t);
+        visit(q, 0, 0, s, 0, s, t);
+        visit(q, 1, 0, t, 0, s, t);
         // Implement the rest of the algorithm yourself
 	int side {0};
 	vector<vector<bool>> processed(2, vector<bool>(n_, false));
@@ -90,7 +90,7 @@ public:
    		    for (int i = 0; i < adj_[side][u].size(); i++) {
 			int vertex = adj_[side][u][i];
 		        if (!processed[side][vertex]) {
-			    visit(q, side, vertex, cost_[side][u][i], s, t);
+			    visit(q, side, u, vertex, cost_[side][u][i], s, t);
 			}
 		    }
 		    processed[side][u] = true;
@@ -109,6 +109,7 @@ public:
 	}
         return -1;
     }
+
 };
 
 int main() {
@@ -120,19 +121,17 @@ int main() {
 	cin >> a >> b;
         xy[i] = make_pair(a,b);
     }
-    Adj adj(2, vector<vector<int>>(n));
-    Adj cost(2, vector<vector<int>>(n));
+    Adj adj(2, vector<vector<Len>>(n));
+    Adj cost(2, vector<vector<Len>>(n));
     for (int i=0; i<m; ++i) {
-        int u, v, c;
+        long long u, v, c;
 	cin >> u >> v >> c;
         adj[0][u-1].push_back(v-1);
         cost[0][u-1].push_back(c);
         adj[1][v-1].push_back(u-1);
         cost[1][v-1].push_back(c);
     }
-
     AStar astar(n, adj, cost, xy);
-
     int t;
     cin >> t;
     for (int i=0; i<t; ++i) {
